@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image">
+    <title>E-Todolist</title>
+
+    <!-- Bootstrap core CSS -->
+
+<link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png">
+
+<link href="https://bootstrap.hexschool.com/docs/4.2/dist/css/bootstrap.css" rel="stylesheet">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      span.point.red{
+        font-size: 25px;
+        color: #e83939;
+        font-family: cursive;
+      }
+      .eventComplete{
+        color: #000;
+        background-color: #e83939;
+        text-decoration:line-through;
+      }
+      .redbox{
+        height: 20px;
+        width: 20px;
+        background-color: #e83939;
+      }
+      .bluebox{
+        height: 20px;
+        width: 20px;
+        background-color: #cce5ff;
+      }
+      .EventDelete:hover{
+        color: #000;
+        transform:scale(1.8,1.8)
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://bootstrap.hexschool.com/docs/4.2/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Todolist</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/index.html">回到上一頁<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div role="main" class="container">
+  <div class="jumbotron">
+    <h1>To Do List</h1>
+    <p class="lead">歷史訊息(前七天):你曾經沒有做完的事情都保留於下列列表中
+      <!-- <ol>
+      <li>每天<span class="point red">早上</span>列下你所要處理的事情</li>
+      <li>每天<span class="point red">晚上</span>查看事情已經處理完了沒</li>
+      </ol> -->
+    </p>
+    <div class="input-group mb-3">
+  <!-- <input type="text" id="EventContent" class="form-control" placeholder="請輸入你的代辦事項" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="EventAdd">新增</button>
+  </div> -->
+</div>
+  <!-- <div>
+    <div class="redbox" style="display: inline-block;  vertical-align: top;" ></div><span style="display:inline;">代表已完成</span>
+    <div class="bluebox" style="display: inline-block;  vertical-align: top;" ></div><span style="display:inline;">代表未完成</span>
+  </div> -->
+  </div>
+</div>
+<div role="main" class="EventHistory container">
+
+</div>
+<!-- <script src="static/index.js"></script> -->
+<script src="static/js/history.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="https://bootstrap.hexschool.com/docs/4.2/dist/js/bootstrap.bundle.js"><\/script>')</script><script src="https://bootstrap.hexschool.com/docs/4.2/dist/js/bootstrap.bundle.js"></script></body>
+</html>
