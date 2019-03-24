@@ -69,8 +69,14 @@ function eventComplete(e) {
     return;
   }
   e.target.classList.toggle("eventComplete");
+  //處理事件完成
   let data = JSON.parse(localStorage.getItem(CurrentDate));
-  data[e.target.dataset.index]["finished"] = true;
+  if(data[e.target.dataset.index]["finished"]){
+    data[e.target.dataset.index]["finished"] = false;
+  }
+  else{
+    data[e.target.dataset.index]["finished"] = true;
+  }
   localStorage.setItem(CurrentDate, JSON.stringify(data));
   updateList();
 }
