@@ -1,24 +1,27 @@
-// var Content = document.getElementById('EventContent');
 var btn_Add = document.getElementById("EventAdd");
-var AddList = document.querySelector(".EventList");
-var CurrentDate = DateFormat((date = new Date())); //取得現在日期
+var AddList = document.querySelector(".EventList ol");
+var CurrentDate = DateFormat((date = new Date())); //Get Today date
 btn_Add.addEventListener("click", AddEvent);
 var priority = document.querySelector("#Event_priority");
 priority.addEventListener("click", selectPriotity);
+AddList.addEventListener("click", EventUpdate);
 //EventColor
 var EventColor = {
   "simple": "primary",
   "medium": "warning",
   "important": "danger"
 };
-//初始
+//
+var keyItem="";
+var index="";
+//initialtion
 updateList();
 
 AddList.addEventListener("click", EventDelete);
 function AddEvent() {
   let EventContent = document.getElementById("EventContent");
   let EventList = [];
-    //抓取優先權
+    //Get event priority
   let priority = getSelectButton();
   if(priority==undefined){return}
   EventList.push({
@@ -27,7 +30,7 @@ function AddEvent() {
     finished: false
   });
 
-  //新增資料
+  //Add data
   if (!localStorage.getItem(CurrentDate)) {
     localStorage.setItem(CurrentDate, JSON.stringify(EventList));
   } else {
@@ -43,33 +46,57 @@ function AddEvent() {
   EventContent.value = "";
   updateList();
 }
-//更新事件條
+//Show update Windows
+function EventUpdate(e) {
+  keyItem = e.target.parentNode.parentNode.querySelector("span").textContent;
+  index = e.target.parentNode.dataset.index;
+  document.getElementById("UpdateContent").value = e.target.parentNode.parentNode.querySelector("p").textContent;
+}
+document.querySelector("#ContentUpdate").onclick = function (){
+ let content = document.getElementById("UpdateContent").value;
+ let EventList=JSON.parse(localStorage.getItem(keyItem));
+ EventList[index]["event"] = content;
+ localStorage.setItem(keyItem,JSON.stringify(EventList));
+ updateList();
+}
+
+//Update state of event
 function updateList() {
   let todayEventList = JSON.parse(localStorage.getItem(CurrentDate));
   let listFrame = "";
   for (let i = 0; i < todayEventList.length; i++) {
     if (todayEventList[i]["finished"]) {
-      listFrame += `<div data-index=${i} style="cursor: pointer;
+      listFrame += `<li><div data-index=${i} style="cursor: pointer;
         "class=" eventComplete alert alert-primary" role="alert">
-        ${CurrentDate}=== ${todayEventList[i]["event"]}
-        <a title="刪除" class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div>`;
+        <a class="EventUpdate"data-index=${i} data-toggle="modal" data-target="#exampleModal" style='font-size:24px'><i class='fas fa-edit'></i></a>
+
+        <span>${CurrentDate}</span>:<p> ${todayEventList[i]["event"]}</p>
+        <a title="刪除" class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div></li>`;
     } else {
-      listFrame += `<div data-index=${i} style="cursor: pointer;
+      listFrame += `<li><div data-index=${i} style="cursor: pointer;
         "class=" alert alert-${EventColor[todayEventList[i]["priority"]]}" role="alert">
-        ${CurrentDate}=== ${todayEventList[i]["event"]}
-        <a title="刪除"class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div>`;
+        <a class="EventUpdate"data-index=${i} data-toggle="modal" data-target="#exampleModal"style='font-size:24px'> <i class='fas fa-edit'></i></a>
+
+        <span>${CurrentDate}</span>:<p> ${todayEventList[i]["event"]}</p>
+        <a title="刪除"class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div></li>`;
     }
   }
   AddList.innerHTML = listFrame;
+  var TodayItem = document.querySelectorAll(".TodayItem");
+  for (let i = 0; i < TodayItem.length; i++) {
+    TodayItem[i].innerHTML = todayEventList.length;
+  }
+  let CompleteLen = document.getElementsByClassName('EventComplete').length;
+    document.getElementById("ItemComplete").innerHTML=CompleteLen ;
 }
-//事件已完成
-AddList.addEventListener("click", eventComplete);
+//Change event color state in class
+AddList.addEventListener("click", eventComplete,false);
 function eventComplete(e) {
   if (e.target.nodeName !== "DIV") {
     return;
   }
   e.target.classList.toggle("eventComplete");
-  //處理事件完成
+  //Handle event complete
   let data = JSON.parse(localStorage.getItem(CurrentDate));
   if(data[e.target.dataset.index]["finished"]){
     data[e.target.dataset.index]["finished"] = false;
@@ -79,8 +106,19 @@ function eventComplete(e) {
   }
   localStorage.setItem(CurrentDate, JSON.stringify(data));
   updateList();
+  if(document.getElementsByClassName('eventComplete').length === data.length){
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: '恭喜！',
+      html:
+      "<b>你今天的工作已經完成了</b>, ",
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
 }
-//時間字串處理
+//Date string process
 function DateFormat(date) {
   let year = date.getFullYear();
   let month = date.getMonth() + 1;
@@ -93,14 +131,14 @@ function DateFormat(date) {
 
   return CurrentDate;
 }
-//分鐘補0
+//Adjust that  minute plus string 0
 function minuteAdjust(minute) {
   if (minute < 10) {
     minute = `0${minute}`;
   }
   return minute;
 }
-//事件刪除
+//Event Delete
 function EventDelete(e) {
   e.preventDefault();
   if (e.target.nodeName !== "A") {
@@ -112,7 +150,7 @@ function EventDelete(e) {
   localStorage.setItem(CurrentDate, JSON.stringify(list));
   updateList();
 }
-//選擇優先權
+//When choice priority
 function selectPriotity(e) {
   if (e.target.tagName !== "BUTTON") {
     return;
@@ -121,7 +159,7 @@ function selectPriotity(e) {
   let btn_value = e.target.value; //所選按鈕
   checkSelectButton(btn_value);
 }
-//刪除原本選的
+//Delete class of priority when you choice other priority
 function checkSelectButton(btn_value) {
   var selectbtn = document.querySelectorAll(".select_btn");
   for (let i = 0; i < selectbtn.length; i++) {
@@ -132,6 +170,7 @@ function checkSelectButton(btn_value) {
     }
   }
 }
+//Get the priority
 function getSelectButton() {
   let selectbtn = document.querySelectorAll(".select_btn");
   let checkpriority = false;
@@ -142,7 +181,12 @@ function getSelectButton() {
     }
   }
   if (checkpriority === false) {
-    alert("請輸入事件優先權");
+    Swal.fire({
+      title: "請選擇事件的優先權",
+      type: "warning",
+      confirmButtonText: '瞭解',
+
+    });
     return ;
   }
 }

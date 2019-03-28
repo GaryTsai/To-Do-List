@@ -1,0 +1,104 @@
+body {
+  font-family: Microsoft JhengHei;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+}
+
+span.point.red {
+  font-size: 25px;
+  color: #e83939;
+  font-family: cursive;
+}
+
+.eventComplete {
+  color: #000;
+  background-color: #e83939;
+  text-decoration: line-through;
+}
+
+.redbox {
+  height: 20px;
+  width: 20px;
+  background-color: #e83939;
+}
+/* .bluebox{
+        height: 20px;
+        width: 20px;
+        background-color: #cce5ff;
+      } */
+
+p {
+  display: inline;
+  word-break: break-all;
+}
+
+.EventDelete:hover {
+  color: #000;
+  transform: scale(1.8, 1.8);
+}
+
+.EventUpdate {
+  Z-index: 1;
+  cursor: pointer;
+}
+
+a.EventUpdate i:hover {
+  transform: scale(1.5, 1.5);
+}
+
+.select_btn {
+  width: 80px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.EventList ol {
+  padding: 0px;
+}
+
+.click_btn {
+  box-shadow: 4px 4px 12px 4px rgba(20%, 20%, 40%, 0.5);
+}
+
+/*history  */
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+span.point.red {
+  font-size: 25px;
+  color: #e83939;
+  font-family: cursive;
+}
+.eventComplete {
+  color: #000;
+  background-color: #e83939;
+  text-decoration: line-through;
+}
+.redbox {
+  height: 20px;
+  width: 20px;
+  background-color: #e83939;
+}
+.bluebox {
+  height: 20px;
+  width: 20px;
+  background-color: #cce5ff;
+}
+.EventDelete:hover {
+  color: #000;
+  transform: scale(1.8, 1.8);
+}
