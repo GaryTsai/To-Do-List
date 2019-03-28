@@ -1,4 +1,4 @@
-var his_event = document.querySelector(".EventHistory");
+var his_event = document.querySelector(".EventHistory ol");
 var date = "";
 var week = WeekFormat((date = new Date()));
 var HistoryEvent = "";
@@ -23,15 +23,15 @@ function getHistoryEvent(week, Header_Time) {
 
   for (let i = 0; i < data.length; i++) {
     if (data[i]["finished"]) {
-      HistoryEvent += `<div data-index=${i} style="cursor: pointer;
+      HistoryEvent += `<li><div data-index=${i} style="cursor: pointer;
         "class=" eventComplete alert alert-${EventColor[data[i]["priority"]]}" role="alert">
-        ${week}=== ${data[i]["event"]}
-        <a title="刪除" class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div>`;
+        <span>${week}</span>:<p> ${data[i]["event"]}</p>
+        <a title="刪除" class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div></li>`;
     } else {
-      HistoryEvent += `<div data-index=${i} style="cursor: pointer;
+      HistoryEvent += `<li><div data-index=${i} style="cursor: pointer;
         "class="  alert alert-${EventColor[data[i]["priority"]]}" role="alert">
-        ${week}=== ${data[i]["event"]}
-        <a title="刪除" class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div>`;
+        <span>${week}</span>:<p>${data[i]["event"]}</p>
+        <a title="刪除" class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div></li>`;
     }
   }
   return HistoryEvent;

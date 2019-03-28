@@ -1,115 +1,75 @@
+<html lang="en" class="">
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="This is a simple wem to record event in your life wthin in a week，you can use thie web to execute your event in every day">
-    <meta name="author" content="Meng Chao, Tsai">
-    <meta name="generator" content="Jekyll v1.0.1">
-    <meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image">
-    <title>E-Todolist</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="This is a simple wem to record event in your life wthin in a week，you can use thie web to execute your event in every day">
+  <meta name="author" content="Meng Chao, Tsai">
+  <meta name="generator" content="Jekyll v1.0.1">
+  <meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image">
+  <title>E-Todolist</title>
 
-    <!-- Bootstrap core CSS -->
-<link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png">
+  <!-- Bootstrap core CSS -->
+  <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png">
 
-<link href="https://bootstrap.hexschool.com/docs/4.2/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="https://bootstrap.hexschool.com/docs/4.2/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+    crossorigin="anonymous">
+  <link href="https://bootstrap.hexschool.com/docs/4.2/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
 
+<link rel="stylesheet" href="static/css/style.css">
+  <!-- Custom styles for this template -->
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-      }
+  </style>
+</head>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      span.point.red{
-        font-size: 25px;
-        color: #e83939;
-        font-family: cursive;
-      }
-      .eventComplete{
-        color: #000;
-        background-color: #e83939;
-        text-decoration:line-through;
-      }
-      .redbox{
-        height: 20px;
-        width: 20px;
-        background-color: #e83939;
-      }
-      /* .bluebox{
-        height: 20px;
-        width: 20px;
-        background-color: #cce5ff;
-      } */
-      .EventDelete:hover{
-        color: #000;
-        transform:scale(1.8,1.8)
-      }
-      .select_btn{
-        width: 80px;
-        height: 40px;
-        display: inline-block;
-        vertical-align: top;
-        cursor: pointer;
-      }
-      /* .select_btn:hover{
-       box-shadow:4px 4px 12px 4px rgba(20%,20%,40%,0.5);
-
-      } */
-      .click_btn{
-       box-shadow:4px 4px 12px 4px rgba(20%,20%,40%,0.5);
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="https://bootstrap.hexschool.com/docs/4.2/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Todolist</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+<body class="" style="padding-right: 0px;">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Todolist</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+      aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/history.html">歷史代辦訊息(前七天)<span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/history.html">歷史代辦訊息(前七天)<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<div role="main" class="container">
-  <div class="jumbotron">
-    <h1>To Do List</h1>
-    <p class="lead">建立起每天的代辦事項，條列式處理你的事情，做好每一件事
+  <div role="main" class="container">
+    <div class="jumbotron">
+      <h1>To Do List</h1>
+      <p class="lead">建立起每天的代辦事項，條列式處理你的事情，做好每一件事，每天<span class="point red">早上</span>列下你所要處理的事情，每天<span class="point red">晚上</span>查看事情已經處理完了沒
+      </p>
       <ol>
-      <li>每天<span class="point red">早上</span>列下你所要處理的事情</li>
-      <li>每天<span class="point red">晚上</span>查看事情已經處理完了沒</li>
+        <li>請在輸入框寫上今天的代辦事項並按<span class="point red">新增</span></li>
+        <li>從緊急、
+          中等、
+          不急選擇事件<span style="color:#2f86bf">優先度</span></li>
+        <li>可透過左邊　<i class=" fas fa-edit"></i>　點擊修改事件內容</li>
+        <li>可透過右邊 <span aria-hidden="true" 　style="font-size: 1.5rem;">x</span> 刪除已不必執行的事件</li>
+        <li>事件<span class="point red">完成</span>可點擊該事件表示已經完成</li>
       </ol>
-    </p>
-    <div class="input-group mb-3">
-  <input type="text" id="EventContent" class="form-control" placeholder="請輸入你的代辦事項" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <p></p>
+      <div class="input-group mb-3">
+        <input type="text" id="EventContent" class="form-control" placeholder="請輸入你的代辦事項" aria-label="Recipient's username" aria-describedby="button-addon2">
 
 
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" id="EventAdd">新增</button>
-  </div>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="EventAdd">新增</button>
+        </div>
 
-</div>
-    <!-- <div class="btn-group" role="group">
+      </div>
+      <!-- <div class="btn-group" role="group">
       <button type="button" class="btn btn-secondary alert alert-danger" value="important">緊急(橘)</button>
       <button type="button" class="btn btn-secondary alert alert-warning" value="medium">中等(淺黃)</button>
       <button type="button" class="btn btn-secondary alert alert-primary " value="simple">不急(淺藍)</button>
     </div> -->
-    <!-- button 群組 -->
-    <!-- <div class="btn-group btn-group-toggle " data-toggle="buttons">
+      <!-- button 群組 -->
+      <!-- <div class="btn-group btn-group-toggle " data-toggle="buttons">
       <label class="btn btn-secondary alert alert-danger  active">
     <input type="radio" name="options" id="option1" autocomplete="off" checked> 緊急(橘)
   </label>
@@ -120,28 +80,68 @@
     <input type="radio" name="options" id="option3" autocomplete="off"> 不急(淺藍)
   </label>
     </div> -->
-<!--  自己做-->
-<div id="Event_priority">
-  <button class="alert alert-danger select_btn" value="important" >
+      <!--  自己做-->
+      <div id="Event_priority">
+        <button class="alert alert-danger select_btn click_btn" value="important">
     緊急
   </button>
-  <button class="alert alert-warning select_btn" value="medium" >
+        <button class="alert alert-warning select_btn" value="medium">
     中等
   </button>
-  <button class="alert alert-primary select_btn" value="simple">
+        <button class="alert alert-primary select_btn" value="simple">
     不急
   </button>
-</div>
-  <div style="margin: 20px;" >
-    <div class="redbox" style="display: inline-block;  vertical-align: top;" ></div><span style="display:inline;">代表已完成</span>
-    <div class="bluebox" style="display: inline-block;  vertical-align: top;" ></div><span style="display:inline;">Other: 代表未完成</span>
+      </div>
+      <div style="margin: 20px;">
+        <div class="redbox" style="display: inline-block;  vertical-align: top;"></div><span style="display:inline;">代表已完成</span>
+        <!-- <div class="bluebox" style="display: inline-block;  vertical-align: top;" ></div><span style="display:inline;">Other: 代表未完成</span> -->
+      </div>
+    </div>
   </div>
+  <div role="main" class=" container" style="padding-bottom:20px;">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6">今天有 <span class="TodayItem" style=" font-size:20px">0</span> 項代辦事項</div>
+      <div class="col-md-6 col-sm-6 col-xs-6" >今天已完成 <span id="ItemComplete" style=" font-size:20px">0</span>/<span class="TodayItem" style=" font-size:20px">0</span>        項</div>
+    </div>
   </div>
-</div>
-<div role="main" class="EventList container">
+  <div role="main" class="EventList container">
+    <ol></ol>
 
-</div>
-<script src="static/js/index.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="https://bootstrap.hexschool.com/docs/4.2/dist/js/bootstrap.bundle.js"><\/script>')</script><script src="https://bootstrap.hexschool.com/docs/4.2/dist/js/bootstrap.bundle.js"></script></body>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">更新代辦內容</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">代辦內容:</label>
+              <input type="text" class="form-control" id="UpdateContent">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="ContentUpdate">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script>
+    window.jQuery || document.write('<script src="https://bootstrap.hexschool.com/docs/4.2/dist/js/bootstrap.bundle.js"><\/script>')
+  </script>
+  <script src="https://bootstrap.hexschool.com/docs/4.2/dist/js/bootstrap.bundle.js"></script>
+
+
+</body>
+
 </html>
