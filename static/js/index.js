@@ -88,6 +88,7 @@ function updateList() {
   }
   let CompleteLen = document.getElementsByClassName('EventComplete').length;
     document.getElementById("ItemComplete").innerHTML=CompleteLen ;
+    console.log('111');
 }
 //Change event color state in class
 AddList.addEventListener("click", eventComplete,false);
