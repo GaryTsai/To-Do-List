@@ -1,6 +1,6 @@
 var his_event = document.querySelector(".EventHistory ol");
 var date = "";
-var week = WeekFormat((date = new Date()));
+var week = WeekFormat();
 var HistoryEvent = "";
 var EventColor = {
   simple: "primary",
@@ -13,9 +13,11 @@ function History() {
     if (localStorage.getItem(week[i])) {
       Header_Time = `<h1>${week[i]}</h1>`;
       Content_event = getHistoryEvent(week[i], Header_Time);
+
       his_event.innerHTML = `${Content_event}`;
     }
   }
+  // console.log(his_event);
 }
 function getHistoryEvent(week, Header_Time) {
   let data = JSON.parse(localStorage.getItem(week));
@@ -33,23 +35,29 @@ function getHistoryEvent(week, Header_Time) {
         <span>${week}</span>:<p>${data[i]["event"]}</p>
         <a title="刪除" class="EventDelete close"style="float:right"data-index=${i} href="#">×</a></div></li>`;
     }
-  }
+  }console.log(HistoryEvent);
   return HistoryEvent;
 }
-function WeekFormat(date) {
+function WeekFormat() {
+  var date = new Date();
   let year = date.getFullYear();
   let month = date.getMonth() + 1;
   let day = date.getDate();
   let week = 8;
   let weekDay = [];
+
   for (let i = 1; i < 8; i++) {
     if (day - i <= 0) {
-      month -= 1;
-      if (month == 0) {
-        (month = 12), (year -= 1);
-      }
+      month-=1;
+      date.setFullYear(year, month, 0);
+      day = date.getDate()+1;
+    }
+    if (month === 0) {
+      month = 12;
+      year -= 1;
     }
     weekDay.push(`${year}-${month}-${day - i}`);
   }
+        console.log(weekDay);
   return weekDay;
 }
