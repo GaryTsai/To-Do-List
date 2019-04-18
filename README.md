@@ -3,7 +3,7 @@
 目前嘗試將該版本建構在兩種免費伺服器下
 * 000webhost: https://garytodolist.000webhostapp.com/ 。
 * Heroku: https://to-do-list-2019.herokuapp.com/
-
+(由Heroku直接連結Github只要Github更新就可直接更新網站內容)
 # 這是一個快速開發的版本
 * 樣式使用bootstrap 4版本製作WEB
 * 該v1.0版本使用**LocalStorage**來儲存每天的代辦事務(不排除日後使用後端資料庫做處理)
